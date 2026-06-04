@@ -136,32 +136,84 @@
   .event-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
   /* GALLERY */
-  .gallery-section { padding: 4rem 2rem; max-width: 700px; margin: 0 auto; }
+  /* GALLERY SECTION */
+  .gallery-wrapper {
+    background: linear-gradient(135deg, #B8E6F0 0%, #87CEEB 25%, #4A90B5 75%, #87CEEB 100%);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-wrapper::before {
+    content: '✈'; position: absolute; top: 10%; left: 8%; font-size: 3rem; opacity: 0.15; transform: rotate(-15deg);
+  }
+  .gallery-wrapper::after {
+    content: '✈'; position: absolute; bottom: 15%; right: 10%; font-size: 2.5rem; opacity: 0.12; transform: rotate(25deg);
+  }
+  .gallery-section { 
+    padding: 3rem 2rem; max-width: 900px; margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(212, 220, 200, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .gallery-header {
+    text-align: center; margin-bottom: 3rem;
+  }
+  .gallery-heading-divider {
+    font-size: 1.5rem; color: var(--brown-light); margin-bottom: 1rem; letter-spacing: 0.5em;
+  }
+  .gallery-divider {
+    font-size: 1.2rem; color: var(--brown); margin-top: 1rem; letter-spacing: 0.3em;
+  }
+  .gallery-container {
+    position: relative;
+    padding: 2rem;
+  }
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem; margin-top: 2rem;
+    gap: 3rem; margin-top: 2.5rem;
   }
   .gallery-item {
     aspect-ratio: 1;
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    font-size: 2rem;
     position: relative;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 40px rgba(125, 92, 69, 0.2);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: linear-gradient(135deg, #F9F5F0, #FAF6F0);
+    border: 3px solid rgba(196, 168, 130, 0.2);
   }
   .gallery-img {
     width: 100%; height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .gallery-item:hover .gallery-img { transform: scale(1.05); }
-  .gallery-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-  .gallery-item:nth-child(1) { background: linear-gradient(135deg, #D4DCC8, #8A9B72); }
-  .gallery-item:nth-child(2) { background: linear-gradient(135deg, #F2D5BC, #C4A882); }
+  .frame-corners {
+    position: absolute;
+    width: 24px; height: 24px;
+    border: 2px solid #C4A882;
+    z-index: 10;
+    opacity: 0.7;
+  }
+  .frame-top-left { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+  .frame-top-right { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+  .frame-bottom-left { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+  .frame-bottom-right { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+  .gallery-item:hover .gallery-img { transform: scale(1.1) rotate(1deg); }
+  .gallery-item:hover { 
+    box-shadow: 0 20px 60px rgba(125, 92, 69, 0.3);
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(196, 168, 130, 0.5);
+  }
+  .gallery-item:hover .frame-corners {
+    opacity: 1;
+    border-color: #E8A98C;
+  }
   .gallery-placeholder {
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     color: rgba(255,255,255,0.7); text-align: center; padding: 1rem;
@@ -286,14 +338,18 @@
     nav a { font-size: 10px; }
     .countdown { gap: 1rem; flex-wrap: wrap; }
     .countdown-item .num { font-size: 2rem; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .gallery-wrapper { padding: 3rem 1rem; }
+    .gallery-section { padding: 2rem 1.5rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   }
   @media (max-width: 480px) {
     nav a { padding: 0.3rem 0.5rem; font-size: 9px; }
     .countdown { gap: 0.8rem; }
     .countdown-item .num { font-size: 1.5rem; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item:nth-child(5) { grid-column: auto; aspect-ratio: 1; }
+    .gallery-wrapper { padding: 2rem 1rem; }
+    .gallery-section { padding: 1.5rem 1rem; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .gallery-item { border-radius: 16px; }
+    .frame-corners { width: 16px; height: 16px; }
   }
 
