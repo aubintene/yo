@@ -139,23 +139,29 @@
   .gallery-section { padding: 4rem 2rem; max-width: 700px; margin: 0 auto; }
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px; margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; margin-top: 2rem;
   }
   .gallery-item {
     aspect-ratio: 1;
-    border-radius: 4px;
+    border-radius: 12px;
     overflow: hidden;
     display: flex; align-items: center; justify-content: center;
     font-size: 2rem;
     position: relative;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
+  .gallery-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover .gallery-img { transform: scale(1.05); }
+  .gallery-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
   .gallery-item:nth-child(1) { background: linear-gradient(135deg, #D4DCC8, #8A9B72); }
   .gallery-item:nth-child(2) { background: linear-gradient(135deg, #F2D5BC, #C4A882); }
-  .gallery-item:nth-child(3) { background: linear-gradient(135deg, #E8A98C, #C0694A); }
-  .gallery-item:nth-child(4) { background: linear-gradient(135deg, #F0D6D6, #D4C4C4); }
-  .gallery-item:nth-child(5) { background: linear-gradient(135deg, #C4A882, #7D5C45); grid-column: span 2; aspect-ratio: 2/1; }
-  .gallery-item:nth-child(6) { background: linear-gradient(135deg, #8A9B72, #6B7C5C); grid-row: span 1; }
   .gallery-placeholder {
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     color: rgba(255,255,255,0.7); text-align: center; padding: 1rem;
@@ -280,13 +286,13 @@
     nav a { font-size: 10px; }
     .countdown { gap: 1rem; flex-wrap: wrap; }
     .countdown-item .num { font-size: 2rem; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   }
   @media (max-width: 480px) {
     nav a { padding: 0.3rem 0.5rem; font-size: 9px; }
     .countdown { gap: 0.8rem; }
     .countdown-item .num { font-size: 1.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item:nth-child(5) { grid-column: auto; aspect-ratio: 1; }
   }
