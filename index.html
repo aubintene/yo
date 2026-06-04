@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+      <nav>
+  <a onclick="showSection('hero')">Accueil</a>
+  <a onclick="showSection('programme')">Programme</a>
+  <a onclick="showSection('gallery')">Photos</a>
+ 
+</nav>
+
+<section id="hero" class="active">
+  <div class="hero">
+    <div class="hero-ornament">♡ Save the date ♡</div>
+    <h1>Daniella<br><span>&</span> Leandres</h1>
+    <p class="hero-date">Vendredi 17 - Samedi 18 juillet 2026</p>
+    <p class="hero-location">Château de Fontreyne · Carcassonne, France</p>
+    <div class="divider">✦</div>
+    <div class="countdown">
+      <div class="countdown-item"><span class="num" id="cd-days">0</span><span class="lbl">jours</span></div>
+      <div class="countdown-item"><span class="num" id="cd-hours">0</span><span class="lbl">heures</span></div>
+      <div class="countdown-item"><span class="num" id="cd-mins">0</span><span class="lbl">minutes</span></div>
+      <div class="countdown-item"><span class="num" id="cd-secs">0</span><span class="lbl">secondes</span></div>
+    </div>
+    <div class="divider">✦</div>
+    <p style="font-size:14px; color: var(--muted); max-width: 380px; line-height: 1.7; margin-top: 1rem;">
+      Nous avons la joie de vous convier à la célébration de notre union et serions heureux de partager ce jour si spécial avec vous.
+    </p>
+    <button class="btn-rsvp-hero" onclick="showSection('rsvp')">✓ Confirmer ma présence</button>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="programme">
+    <h2 class="section-title">Le programme</h2>
+    <p class="section-sub">17 - 18 juillet 2026</p>
+    <div class="timeline">
+      <div class="event">
+        <p class="event-time">10h30</p>
+        <p class="event-name">Cérémonie civile</p>
+        <p class="event-desc">Mairie de Carcassonne — Place Gambetta. Tenue élégante souhaitée.</p>
+      </div>
+      <div class="event">
+        <p class="event-time">14h00</p>
+        <p class="event-name">Cérémonie laïque</p>
+        <p class="event-desc">Dans les jardins du Château de Fontreyne, sous les oliviers centenaires.</p>
+      </div>
+      <div class="event">
+        <p class="event-time">16h00</p>
+        <p class="event-name">Vin d'honneur & cocktail</p>
+        <p class="event-desc">Dégustation de vins locaux et mignardises sur la terrasse panoramique.</p>
+      </div>
+      <div class="event">
+        <p class="event-time">19h30</p>
+        <p class="event-name">Dîner de gala</p>
+        <p class="event-desc">Dans la grande salle du château. Menu gastronomique concocté par le Chef Moreau.</p>
+      </div>
+      <div class="event">
+        <p class="event-time">22h00</p>
+        <p class="event-name">Soirée dansante</p>
+        <p class="event-desc">Musique live et DJ set jusqu'au bout de la nuit. Que la fête commence !</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-section">
+    <h2 class="section-title">Notre histoire</h2>
+    <p class="section-sub">Quelques souvenirs</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><p class="gallery-placeholder">Notre rencontre<br>2019</p></div>
+      <div class="gallery-item"><p class="gallery-placeholder">Nos fiançailles<br>2023</p></div>
+      <div class="gallery-item"><p class="gallery-placeholder">Voyage au Maroc<br>2024</p></div>
+      <div class="gallery-item"><p class="gallery-placeholder">Nos familles</p></div>
+      <div class="gallery-item"><p class="gallery-placeholder">Le lieu du mariage · Château de Fontreyne</p></div>
+    </div>
+    <p style="text-align: center; font-size: 12px; color: var(--muted); margin-top: 1.5rem;">
+      Remplacez ces blocs par vos vraies photos ✦
+    </p>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="rsvp-section">
+    <h2 class="section-title">Votre présence</h2>
+    <p class="section-sub">Avant le 1er juillet 2026</p>
+    <div class="rsvp-card">
+      <div id="form-content">
+        <div class="form-group">
+          <label>Votre nom complet</label>
+          <input type="text" id="name" placeholder="Marie Dupont" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="marie@exemple.fr" />
+        </div>
+        <div class="form-group">
+          <label>Nombre de personnes</label>
+          <select id="guests">
+            <option value="1">1 personne</option>
+           
+       
+        </div>
+        <div class="form-group">
+          <label>Présence</label>
+          <div class="radio-group">
+            <label class="radio-label selected" id="opt-yes" onclick="selectPresence('yes')">
+              <input type="radio" name="presence" value="yes" checked> ✓ Avec joie !
+            </label>
+            <label class="radio-label" id="opt-no" onclick="selectPresence('no')">
+              <input type="radio" name="presence" value="no"> ✗ Absent·e
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message aux mariés (facultatif)</label>
+          <textarea id="message" rows="3" placeholder="Un mot gentil, une chanson à demander…"></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitRSVP()">Confirmer ma réponse</button>
+        <p class="sheets-note">
+          <i class="ti ti-table sheets-icon" aria-hidden="true"></i>
+          Les réponses seront enregistrées dans Google Sheets
+        </p>
+      </div>
+      <div class="success-msg" id="success">
+        <span class="check">✦</span>
+        <p>Merci pour votre réponse !</p>
+        <small>Daniella & Leandres ont été notifiés. À très bientôt !</small>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="index.js"></script>
+</body>
+</html>
+
