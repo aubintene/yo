@@ -46,15 +46,16 @@
   /* HERO */
   .hero {
     min-height: 92vh;
-    background: linear-gradient(160deg, var(--peach) 0%, var(--cream) 50%, var(--olive-pale) 100%);
+    background: linear-gradient(135deg, rgba(192,105,74,0.7) 0%, rgba(61,53,48,0.75) 50%, rgba(107,124,92,0.7) 100%),
+                url('img/WhatsApp Image 2026-06-04 at 14.21.56.jpeg') center / cover no-repeat;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 20% 80%, rgba(192,105,74,0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(107,124,92,0.15) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 20% 80%, rgba(192,105,74,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(107,124,92,0.08) 0%, transparent 60%);
     pointer-events: none;
   }
   .hero > * {
