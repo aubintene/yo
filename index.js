@@ -47,3 +47,10 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+const heroInner = document.querySelector('.hero-inner');
+window.addEventListener('scroll', () => {
+  if (!heroInner) return;
+  const offset = Math.min(window.scrollY, 120);
+  heroInner.style.transform = `translateY(${offset * -0.15}px)`;
+});
+
