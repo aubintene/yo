@@ -46,16 +46,21 @@
   /* HERO */
   .hero {
     min-height: 92vh;
-    background: linear-gradient(135deg, rgba(192,105,74,0.7) 0%, rgba(61,53,48,0.75) 50%, rgba(107,124,92,0.7) 100%),
-                url('img/WhatsApp Image 2026-06-04 at 14.21.56.jpeg') center / cover no-repeat;
+    background: url('img/WhatsApp Image 2026-06-04 at 14.21.56.jpeg') center / cover no-repeat;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 20% 80%, rgba(192,105,74,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(107,124,92,0.08) 0%, transparent 60%);
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.65) 100%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 30%),
+                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.06), transparent 25%);
     pointer-events: none;
   }
   .hero > * {
@@ -64,21 +69,22 @@
   }
   .hero-ornament {
     font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--olive); margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;
   }
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300; font-style: italic;
-    color: var(--dark); line-height: 1.1;
+    color: #fff; line-height: 1.1;
     margin-bottom: 0.5rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.35);
   }
-  .hero h1 span { color: var(--olive); }
+  .hero h1 span { color: #F6E9D8; }
   .hero-date {
     font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--muted); margin: 1.5rem 0 0.5rem;
+    color: rgba(255,255,255,0.8); margin: 1.5rem 0 0.5rem;
   }
-  .hero-location { font-size: 14px; color: var(--muted); margin-bottom: 2.5rem; }
+  .hero-location { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; }
 
   .countdown {
     display: flex; gap: 2rem; margin: 2rem 0;
